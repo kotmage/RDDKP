@@ -1,0 +1,741 @@
+﻿<RaidInfo>
+  <key>12/13/10 19:39:23</key>
+  <start>12/13/10 19:39:23</start>
+  <end>12/13/10 23:18:45</end>
+  <zone>Zul'Gurub</zone>
+  <PlayerInfos>
+    <key1>
+      <name>Pallass</name>
+      <race>Human</race>
+      <guild>Passion</guild>
+      <class>PALADIN</class>
+      <level>60</level>
+    </key1>
+    <key2>
+      <name>Tori</name>
+      <race>Human</race>
+      <guild>Passion</guild>
+      <class>PRIEST</class>
+      <level>60</level>
+    </key2>
+    <key3>
+      <name>Katalina</name>
+      <race>Human</race>
+      <guild>Passion</guild>
+      <class>MAGE</class>
+      <level>60</level>
+    </key3>
+    <key4>
+      <name>Jeans</name>
+      <race>Gnome</race>
+      <guild>Passion</guild>
+      <class>WARLOCK</class>
+      <level>60</level>
+    </key4>
+    <key5>
+      <name>Rufin</name>
+      <race>Human</race>
+      <guild>Passion</guild>
+      <class>PRIEST</class>
+      <level>60</level>
+    </key5>
+    <key6>
+      <name>Yenza</name>
+      <race>Human</race>
+      <guild>Passion</guild>
+      <class>PALADIN</class>
+      <level>60</level>
+    </key6>
+    <key7>
+      <name>Smileatme</name>
+      <race>Human</race>
+      <guild>Passion</guild>
+      <class>PRIEST</class>
+      <level>60</level>
+    </key7>
+    <key8>
+      <name>Yoluna</name>
+      <race>NightElf</race>
+      <guild>Passion</guild>
+      <class>ROGUE</class>
+      <level>60</level>
+    </key8>
+    <key9>
+      <name>Kotmage</name>
+      <race>Human</race>
+      <guild>Passion</guild>
+      <class>MAGE</class>
+      <level>60</level>
+    </key9>
+    <key10>
+      <name>Qak</name>
+      <race>NightElf</race>
+      <guild>Passion</guild>
+      <class>DRUID</class>
+      <level>60</level>
+    </key10>
+    <key11>
+      <name>Balrak</name>
+      <race>NightElf</race>
+      <guild>Passion</guild>
+      <class>HUNTER</class>
+      <level>60</level>
+    </key11>
+    <key12>
+      <name>Shadowko</name>
+      <race>Human</race>
+      <guild>Passion</guild>
+      <class>PRIEST</class>
+      <level>60</level>
+    </key12>
+    <key13>
+      <name>Fizzy</name>
+      <race>Gnome</race>
+      <guild>Passion</guild>
+      <class>MAGE</class>
+      <level>60</level>
+    </key13>
+    <key14>
+      <name>Nescafe</name>
+      <race>Gnome</race>
+      <guild>Mind Control</guild>
+      <class>MAGE</class>
+      <level>60</level>
+    </key14>
+    <key15>
+      <name>Cherry</name>
+      <race>Human</race>
+      <guild>Passion</guild>
+      <class>ROGUE</class>
+      <level>60</level>
+    </key15>
+    <key16>
+      <name>Whytee</name>
+      <race>Human</race>
+      <guild>Passion</guild>
+      <class>WARRIOR</class>
+      <level>60</level>
+    </key16>
+    <key17>
+      <name>Edra</name>
+      <race>NightElf</race>
+      <guild>Mind Control</guild>
+      <class>DRUID</class>
+      <level>60</level>
+    </key17>
+    <key18>
+      <name>Kreleda</name>
+      <race>Human</race>
+      <guild>Mind Control</guild>
+      <class>WARLOCK</class>
+      <level>60</level>
+    </key18>
+    <key19>
+      <name>Mmrrkkyy</name>
+      <race>NightElf</race>
+      <guild>Passion</guild>
+      <class>ROGUE</class>
+      <level>60</level>
+    </key19>
+    <key20>
+      <name>Rane</name>
+      <race>Human</race>
+      <guild>Passion</guild>
+      <class>WARLOCK</class>
+      <level>60</level>
+    </key20>
+    <key21>
+      <name>Panenka</name>
+      <race>Gnome</race>
+      <guild>Passion</guild>
+      <class>MAGE</class>
+      <level>60</level>
+    </key21>
+    <key22>
+      <name>Sinful</name>
+      <race>Human</race>
+      <guild>Passion</guild>
+      <class>WARLOCK</class>
+      <level>60</level>
+    </key22>
+    <key23>
+      <name>Lauria</name>
+      <race>NightElf</race>
+      <guild>Passion</guild>
+      <class>WARRIOR</class>
+      <level>60</level>
+    </key23>
+    <key24>
+      <name>Elsaboom</name>
+      <race>Dwarf</race>
+      <guild>Passion</guild>
+      <class>WARRIOR</class>
+      <level>60</level>
+    </key24>
+    <key25>
+      <name>Gazpy</name>
+      <race>NightElf</race>
+      <guild>Passion</guild>
+      <class>HUNTER</class>
+      <level>60</level>
+    </key25>
+    <key26>
+      <name>Aldysek</name>
+      <race>Human</race>
+      <guild>Passion</guild>
+      <class>WARRIOR</class>
+      <level>60</level>
+    </key26>
+    <key27>
+      <name>Meril</name>
+      <race>NightElf</race>
+      <guild>Passion</guild>
+      <class>WARRIOR</class>
+      <level>60</level>
+    </key27>
+  </PlayerInfos>
+  <BossKills>
+    <key1>
+      <name>High Priestess Jeklik</name>
+      <time>12/13/10 20:08:15</time>
+      <attendees></attendees>
+    </key1>
+    <key2>
+      <name>High Priest Venoxis</name>
+      <time>12/13/10 20:26:17</time>
+      <attendees></attendees>
+    </key2>
+    <key3>
+      <name>High Priestess Mar'li</name>
+      <time>12/13/10 20:53:41</time>
+      <attendees></attendees>
+    </key3>
+    <key4>
+      <name>High Priest Thekal</name>
+      <time>12/13/10 21:14:39</time>
+      <attendees></attendees>
+    </key4>
+    <key5>
+      <name>High Priestess Arlokk</name>
+      <time>12/13/10 21:35:18</time>
+      <attendees></attendees>
+    </key5>
+    <key6>
+      <name>Bloodlord Mandokir</name>
+      <time>12/13/10 23:17:53</time>
+      <attendees></attendees>
+    </key6>
+  </BossKills>
+  <note><![CDATA[hlaseny raid - Zone: Zul'Gurub]]></note>
+  <Join>
+    <key1>
+      <player>Aldysek</player>
+      <race>Human</race>
+      <class>WARRIOR</class>
+      <level>60</level>
+      <time>12/13/10 19:39:23</time>
+    </key1>
+    <key2>
+      <player>Rufin</player>
+      <race>Human</race>
+      <class>PRIEST</class>
+      <level>60</level>
+      <time>12/13/10 19:39:23</time>
+    </key2>
+    <key3>
+      <player>Rane</player>
+      <race>Human</race>
+      <class>WARLOCK</class>
+      <level>60</level>
+      <time>12/13/10 19:39:23</time>
+    </key3>
+    <key4>
+      <player>Qak</player>
+      <race>NightElf</race>
+      <class>DRUID</class>
+      <level>60</level>
+      <time>12/13/10 19:39:23</time>
+    </key4>
+    <key5>
+      <player>Katalina</player>
+      <race>Human</race>
+      <class>MAGE</class>
+      <level>60</level>
+      <time>12/13/10 19:39:23</time>
+    </key5>
+    <key6>
+      <player>Elsaboom</player>
+      <race>Dwarf</race>
+      <class>WARRIOR</class>
+      <level>60</level>
+      <time>12/13/10 19:39:23</time>
+    </key6>
+    <key7>
+      <player>Yenza</player>
+      <race>Human</race>
+      <class>PALADIN</class>
+      <level>60</level>
+      <time>12/13/10 19:39:23</time>
+    </key7>
+    <key8>
+      <player>Yoluna</player>
+      <race>NightElf</race>
+      <class>ROGUE</class>
+      <level>60</level>
+      <time>12/13/10 19:39:23</time>
+    </key8>
+    <key9>
+      <player>Cherry</player>
+      <race>Human</race>
+      <class>ROGUE</class>
+      <level>60</level>
+      <time>12/13/10 19:39:23</time>
+    </key9>
+    <key10>
+      <player>Jeans</player>
+      <race>Gnome</race>
+      <class>WARLOCK</class>
+      <level>60</level>
+      <time>12/13/10 19:39:23</time>
+    </key10>
+    <key11>
+      <player>Mmrrkkyy</player>
+      <race>NightElf</race>
+      <class>ROGUE</class>
+      <level>60</level>
+      <time>12/13/10 19:39:23</time>
+    </key11>
+    <key12>
+      <player>Meril</player>
+      <race>NightElf</race>
+      <class>WARRIOR</class>
+      <level>60</level>
+      <time>12/13/10 19:39:23</time>
+    </key12>
+    <key13>
+      <player>Whytee</player>
+      <race>Human</race>
+      <class>WARRIOR</class>
+      <level>60</level>
+      <time>12/13/10 19:39:23</time>
+    </key13>
+    <key14>
+      <player>Pallass</player>
+      <race>Human</race>
+      <class>PALADIN</class>
+      <level>60</level>
+      <time>12/13/10 19:39:23</time>
+    </key14>
+    <key15>
+      <player>Sinful</player>
+      <race>Human</race>
+      <class>WARLOCK</class>
+      <level>60</level>
+      <time>12/13/10 19:39:23</time>
+    </key15>
+    <key16>
+      <player>Gazpy</player>
+      <race>NightElf</race>
+      <class>HUNTER</class>
+      <level>60</level>
+      <time>12/13/10 19:39:23</time>
+    </key16>
+    <key17>
+      <player>Fizzy</player>
+      <race>Gnome</race>
+      <class>MAGE</class>
+      <level>60</level>
+      <time>12/13/10 19:39:23</time>
+    </key17>
+    <key18>
+      <player>Panenka</player>
+      <race>Gnome</race>
+      <class>MAGE</class>
+      <level>60</level>
+      <time>12/13/10 19:39:23</time>
+    </key18>
+    <key19>
+      <player>Kotmage</player>
+      <race>Human</race>
+      <class>MAGE</class>
+      <level>60</level>
+      <time>12/13/10 19:39:23</time>
+    </key19>
+    <key20>
+      <player>Smileatme</player>
+      <race>Human</race>
+      <class>PRIEST</class>
+      <level>60</level>
+      <time>12/13/10 19:44:58</time>
+    </key20>
+    <key21>
+      <player>Yenza</player>
+      <race>Human</race>
+      <class>PALADIN</class>
+      <level>60</level>
+      <time>12/13/10 19:45:40</time>
+    </key21>
+    <key22>
+      <player>Qak</player>
+      <race>NightElf</race>
+      <class>DRUID</class>
+      <level>60</level>
+      <time>12/13/10 19:45:45</time>
+    </key22>
+    <key23>
+      <player>Elsaboom</player>
+      <race>Dwarf</race>
+      <class>WARRIOR</class>
+      <level>60</level>
+      <time>12/13/10 19:50:05</time>
+    </key23>
+    <key24>
+      <player>Smileatme</player>
+      <race>Human</race>
+      <class>PRIEST</class>
+      <level>60</level>
+      <time>12/13/10 19:50:05</time>
+    </key24>
+    <key25>
+      <player>Tori</player>
+      <race>Human</race>
+      <class>PRIEST</class>
+      <level>60</level>
+      <time>12/13/10 20:19:55</time>
+    </key25>
+    <key26>
+      <player>Cherry</player>
+      <race>Human</race>
+      <class>ROGUE</class>
+      <level>60</level>
+      <time>12/13/10 20:21:46</time>
+    </key26>
+    <key27>
+      <player>Lauria</player>
+      <race>NightElf</race>
+      <class>WARRIOR</class>
+      <level>60</level>
+      <time>12/13/10 21:36:20</time>
+    </key27>
+    <key28>
+      <player>Mmrrkkyy</player>
+      <race>NightElf</race>
+      <class>ROGUE</class>
+      <level>60</level>
+      <time>12/13/10 21:40:59</time>
+    </key28>
+    <key29>
+      <player>Shadowko</player>
+      <race>Human</race>
+      <class>PRIEST</class>
+      <level>60</level>
+      <time>12/13/10 21:40:59</time>
+    </key29>
+    <key30>
+      <player>Edra</player>
+      <race>NightElf</race>
+      <class>DRUID</class>
+      <level>60</level>
+      <time>12/13/10 21:41:45</time>
+    </key30>
+    <key31>
+      <player>Qak</player>
+      <race>NightElf</race>
+      <class>DRUID</class>
+      <level>60</level>
+      <time>12/13/10 21:47:19</time>
+    </key31>
+    <key32>
+      <player>Kreleda</player>
+      <race>Human</race>
+      <class>WARLOCK</class>
+      <level>60</level>
+      <time>12/13/10 21:49:16</time>
+    </key32>
+    <key33>
+      <player>Nescafe</player>
+      <race>Gnome</race>
+      <class>MAGE</class>
+      <level>60</level>
+      <time>12/13/10 21:53:17</time>
+    </key33>
+    <key34>
+      <player>Elsaboom</player>
+      <race>Dwarf</race>
+      <class>WARRIOR</class>
+      <level>60</level>
+      <time>12/13/10 22:32:16</time>
+    </key34>
+    <key35>
+      <player>Shadowko</player>
+      <race>Human</race>
+      <class>PRIEST</class>
+      <level>60</level>
+      <time>12/13/10 22:32:17</time>
+    </key35>
+    <key36>
+      <player>Aldysek</player>
+      <race>Human</race>
+      <class>WARRIOR</class>
+      <level>60</level>
+      <time>12/13/10 22:32:27</time>
+    </key36>
+    <key37>
+      <player>Katalina</player>
+      <race>Human</race>
+      <class>MAGE</class>
+      <level>60</level>
+      <time>12/13/10 22:44:16</time>
+    </key37>
+    <key38>
+      <player>Balrak</player>
+      <race>NightElf</race>
+      <class>HUNTER</class>
+      <level>60</level>
+      <time>12/13/10 23:09:29</time>
+    </key38>
+  </Join>
+  <Leave>
+    <key1>
+      <player>Yenza</player>
+      <time>12/13/10 19:44:58</time>
+    </key1>
+    <key2>
+      <player>Qak</player>
+      <time>12/13/10 19:45:40</time>
+    </key2>
+    <key3>
+      <player>Elsaboom</player>
+      <time>12/13/10 19:47:43</time>
+    </key3>
+    <key4>
+      <player>Smileatme</player>
+      <time>12/13/10 19:49:32</time>
+    </key4>
+    <key5>
+      <player>Yenza</player>
+      <time>12/13/10 20:19:47</time>
+    </key5>
+    <key6>
+      <player>Cherry</player>
+      <time>12/13/10 20:21:34</time>
+    </key6>
+    <key7>
+      <player>Fizzy</player>
+      <time>12/13/10 21:37:32</time>
+    </key7>
+    <key8>
+      <player>Mmrrkkyy</player>
+      <time>12/13/10 21:40:08</time>
+    </key8>
+    <key9>
+      <player>Cherry</player>
+      <time>12/13/10 21:40:59</time>
+    </key9>
+    <key10>
+      <player>Mmrrkkyy</player>
+      <time>12/13/10 21:41:53</time>
+    </key10>
+    <key11>
+      <player>Qak</player>
+      <time>12/13/10 21:42:29</time>
+    </key11>
+    <key12>
+      <player>Yoluna</player>
+      <time>12/13/10 21:49:16</time>
+    </key12>
+    <key13>
+      <player>Meril</player>
+      <time>12/13/10 21:54:13</time>
+    </key13>
+    <key14>
+      <player>Shadowko</player>
+      <time>12/13/10 22:31:58</time>
+    </key14>
+    <key15>
+      <player>Elsaboom</player>
+      <time>12/13/10 22:32:04</time>
+    </key15>
+    <key16>
+      <player>Aldysek</player>
+      <time>12/13/10 22:32:16</time>
+    </key16>
+    <key17>
+      <player>Katalina</player>
+      <time>12/13/10 22:43:52</time>
+    </key17>
+    <key18>
+      <player>Rufin</player>
+      <time>12/13/10 23:07:52</time>
+    </key18>
+    <key19>
+      <player>Gazpy</player>
+      <time>12/13/10 23:09:29</time>
+    </key19>
+    <key20>
+      <player>Pallass</player>
+      <time>12/13/10 23:18:45</time>
+    </key20>
+    <key21>
+      <player>Tori</player>
+      <time>12/13/10 23:18:45</time>
+    </key21>
+    <key22>
+      <player>Katalina</player>
+      <time>12/13/10 23:18:45</time>
+    </key22>
+    <key23>
+      <player>Jeans</player>
+      <time>12/13/10 23:18:45</time>
+    </key23>
+    <key24>
+      <player>Elsaboom</player>
+      <time>12/13/10 23:18:45</time>
+    </key24>
+    <key25>
+      <player>Kotmage</player>
+      <time>12/13/10 23:18:45</time>
+    </key25>
+    <key26>
+      <player>Kreleda</player>
+      <time>12/13/10 23:18:45</time>
+    </key26>
+    <key27>
+      <player>Balrak</player>
+      <time>12/13/10 23:18:45</time>
+    </key27>
+    <key28>
+      <player>Shadowko</player>
+      <time>12/13/10 23:18:45</time>
+    </key28>
+    <key29>
+      <player>Smileatme</player>
+      <time>12/13/10 23:18:45</time>
+    </key29>
+    <key30>
+      <player>Nescafe</player>
+      <time>12/13/10 23:18:45</time>
+    </key30>
+    <key31>
+      <player>Rane</player>
+      <time>12/13/10 23:18:45</time>
+    </key31>
+    <key32>
+      <player>Edra</player>
+      <time>12/13/10 23:18:45</time>
+    </key32>
+    <key33>
+      <player>Whytee</player>
+      <time>12/13/10 23:18:45</time>
+    </key33>
+    <key34>
+      <player>Panenka</player>
+      <time>12/13/10 23:18:45</time>
+    </key34>
+    <key35>
+      <player>Sinful</player>
+      <time>12/13/10 23:18:45</time>
+    </key35>
+    <key36>
+      <player>Lauria</player>
+      <time>12/13/10 23:18:45</time>
+    </key36>
+    <key37>
+      <player>Qak</player>
+      <time>12/13/10 23:18:45</time>
+    </key37>
+    <key38>
+      <player>Aldysek</player>
+      <time>12/13/10 23:18:45</time>
+    </key38>
+  </Leave>
+  <Loot>
+    <key1>
+      <ItemName>Primal Hakkari Shawl</ItemName>
+      <ItemID>19721:0:0:0</ItemID>
+      <Icon>INV_Shoulder_19</Icon>
+      <Class>Quest</Class>
+      <SubClass>Quest</SubClass>
+      <Color>ffa335ee</Color>
+      <Count>1</Count>
+      <Player></Player>
+      <Time>12/23/10 17:47:22</Time>
+      <Zone>Zul'Gurub</Zone>
+      <Note><![CDATA[ - Zone: Zul'Gurub]]></Note>
+    </key1>
+    <key2>
+      <ItemName>Gold Hakkari Bijou</ItemName>
+      <ItemID>19715:0:0:0</ItemID>
+      <Icon>INV_Bijou_Gold</Icon>
+      <Class>Quest</Class>
+      <SubClass>Quest</SubClass>
+      <Color>ff0070dd</Color>
+      <Count>2</Count>
+      <Player>Yoluna</Player>
+      <Time>12/13/10 19:55:25</Time>
+      <Zone>Zul'Gurub</Zone>
+      <Boss>Trash mob</Boss>
+      <Note><![CDATA[ - Zone: Zul'Gurub - Boss: Trash mob]]></Note>
+    </key2>
+    <key3>
+      <ItemName>Primalist's Band</ItemName>
+      <ItemID>19920:0:0:0</ItemID>
+      <Icon>INV_Jewelry_Ring_47</Icon>
+      <Class>Armor</Class>
+      <SubClass>Miscellaneous</SubClass>
+      <Color>ff0070dd</Color>
+      <Count>1</Count>
+      <Player>Pallass</Player>
+      <Costs>40</Costs>
+      <Time>12/13/10 20:10:21</Time>
+      <Zone>Zul'Gurub</Zone>
+      <Boss>High Priestess Jeklik</Boss>
+      <Note><![CDATA[ - Zone: Zul'Gurub - Boss: High Priestess Jeklik - 40 DKP]]></Note>
+    </key3>
+    <key4>
+      <ItemName>Primal Hakkari Sash</ItemName>
+      <ItemID>19720:0:0:0</ItemID>
+      <Icon>INV_Belt_07</Icon>
+      <Class>Quest</Class>
+      <SubClass>Quest</SubClass>
+      <Color>ffa335ee</Color>
+      <Count>1</Count>
+      <Player>Smileatme</Player>
+      <Costs>5</Costs>
+      <Time>12/13/10 20:12:07</Time>
+      <Zone>Zul'Gurub</Zone>
+      <Boss>High Priestess Jeklik</Boss>
+      <Note><![CDATA[ - Zone: Zul'Gurub - Boss: High Priestess Jeklik - 5 DKP]]></Note>
+    </key4>
+    <key5>
+      <ItemName>Belt of Untapped Power</ItemName>
+      <ItemID>22716:0:0:0</ItemID>
+      <Icon>INV_Belt_01</Icon>
+      <Class>Armor</Class>
+      <SubClass>Cloth</SubClass>
+      <Color>ff0070dd</Color>
+      <Count>1</Count>
+      <Player>Katalina</Player>
+      <Costs>25</Costs>
+      <Time>12/13/10 20:29:08</Time>
+      <Zone>Zul'Gurub</Zone>
+      <Boss>High Priest Venoxis</Boss>
+      <Note><![CDATA[ - Zone: Zul'Gurub - Boss: High Priest Venoxis - 25 DKP]]></Note>
+    </key5>
+    <key6>
+      <ItemName>Primal Hakkari Stanchion</ItemName>
+      <ItemID>19718:0:0:0</ItemID>
+      <Icon>INV_Bracer_14</Icon>
+      <Class>Quest</Class>
+      <SubClass>Quest</SubClass>
+      <Color>ffa335ee</Color>
+      <Count>1</Count>
+      <Player>Tori</Player>
+      <Costs>5</Costs>
+      <Time>12/13/10 20:30:32</Time>
+      <Zone>Zul'Gurub</Zone>
+      <Boss>High Priest Venoxis</Boss>
+      <Note><![CDATA[ - Zone: Zul'Gurub - Boss: High Priest Venoxis - 5 DKP]]></Note>
+    </key6>
+  </Loot>
+</RaidInfo>
