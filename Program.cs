@@ -14,11 +14,11 @@ namespace DKPparser
 		{
 			Raid raid = new Raid();
 			bool oldVer = true;
-	
+
 			XmlDocument doc = new XmlDocument();
 			doc.Load("Oldformat.xml");
 			XmlElement root = doc.DocumentElement;
-			
+
 			foreach (XmlNode node in root.ChildNodes)
 			{
 				switch (node.Name)
@@ -120,28 +120,160 @@ namespace DKPparser
 						break;
 					#endregion
 
-					#region TODO
+					#region join
 					case "Join":
-
-						break;
-
-					case "Leave":
-
-						break;
-
-					case "Loot":
-
-
+						foreach (XmlNode joinXml in node.ChildNodes)
+						{
+							//projedeme parametry a zapísujme je do tempu
+							string name = null;
+							string timeStr = null;
+							foreach (XmlNode joinPar in joinXml)
+							{
+								if (joinPar.Name == "player")
+								{
+									name = joinPar.InnerText;
+								}
+								else if (joinPar.Name == "time")
+								{
+									timeStr = joinPar.InnerText;
+								}
+							}
+							// non-null check, možno odstranit, key bude vždy neco obsahovat
+							if (name != null && timeStr != null)
+							{
+								//najdeme k jmenu odpovídající záznam v players
+								foreach (Player player in raid.players)
+								{
+									if (name == player.name)
+									{
+										//pokud sedí
+										player.joins.Add(Parsing.TimeToObj(oldVer, timeStr));
+										break;
+									}
+								}
+							}
+						}
 						break;
 					#endregion
+
+					#region leave
+					case "Leave":
+						/*
+						kod převzat z join
+						TODO:	vyřešit lepším zpusobem
+						*/
+						foreach (XmlNode joinXml in node.ChildNodes)
+						{
+							//projedeme parametry a zapísujme je do tempu
+							string name = null;
+							string timeStr = null;
+							foreach (XmlNode joinPar in joinXml)
+							{
+								if (joinPar.Name == "player")
+								{
+									name = joinPar.InnerText;
+								}
+								else if (joinPar.Name == "time")
+								{
+									timeStr = joinPar.InnerText;
+								}
+							}
+							// non-null check, možno odstranit, key bude vždy neco obsahovat
+							if (name != null && timeStr != null)
+							{
+								//najdeme k jmenu odpovídající záznam v players
+								foreach (Player player in raid.players)
+								{
+									if (name == player.name)
+									{
+										//pokud sedí
+										player.leaves.Add(Parsing.TimeToObj(oldVer, timeStr));
+										break;
+									}
+								}
+							}
+						}
+						break;
+					#endregion
+
+					#region loot
+					case "Loot":
+						foreach (XmlNode lootXml in node.ChildNodes)
+						{
+							Item loot = new Item();
+
+							foreach (XmlNode lootPar in lootXml)
+							{
+								switch (lootPar.Name)
+								{
+									case "ItemName":
+										loot.itemName = lootPar.InnerText;
+										break;
+
+									case "ItemID":
+										loot.itemID = lootPar.InnerText;
+										break;
+
+									case "Icon":
+										loot.icon = lootPar.InnerText;
+										break;
+
+									case "Class":
+										loot.itemCls = lootPar.InnerText;
+										break;
+
+									case "SubClass":
+										loot.itemSubCls = lootPar.InnerText;
+										break;
+
+									case "Color":
+										loot.color = lootPar.InnerText;
+										break;
+
+									case "Count":
+										loot.count = lootPar.InnerText;
+										break;
+
+									case "Player":
+										loot.player = lootPar.InnerText;
+										break;
+
+									case "Time":
+										loot.timeString = lootPar.InnerText;
+										loot.time = Parsing.TimeToObj(oldVer, lootPar.InnerText);
+										break;
+
+									case "Zone":
+										loot.zone = lootPar.InnerText;
+										break;
+
+									case "Note":
+										loot.note = lootPar.InnerText;
+										break;
+								}
+							}
+							raid.items.Add(loot);
+						}
+						break;
+					#endregion
+
 
 				}
 			}
 		}
 	}
 
+	/// <summary>
+	/// Class with CT_RA XML output parsing methods
+	/// </summary>
 	static class Parsing
 	{
+		/// <summary>
+		/// For translating string form time into timeObj
+		/// </summary>
+		/// <param name="old">true for oldformat=1; false for oldformat=0</param>
+		/// <param name="timeStr">time in string format "MM/DD/YY HH:MM:SS"</param>
+		/// <returns></returns>
 		public static DateTime TimeToObj(bool old, string timeStr)
 		{
 			int[] dateArrStr = new int[3];
@@ -171,7 +303,7 @@ namespace DKPparser
 				indexCh = timeStr.IndexOf(":", indexCh + 1) + 1;
 			}
 
-			return new DateTime(dateArrStr[2], dateArrStr[0], dateArrStr[1], timeArrStr[0], timeArrStr[1], timeArrStr[2]);
+			return new DateTime(2000 + dateArrStr[2], dateArrStr[0], dateArrStr[1], timeArrStr[0], timeArrStr[1], timeArrStr[2]);
 
 		}
 
@@ -186,9 +318,10 @@ namespace DKPparser
 		public string level;
 		public string timeString;
 		public DateTime time;
-		public List<DateTime> joins;
-		public List<DateTime> leaves;
+		public List<DateTime> joins = new List<DateTime>();
+		public List<DateTime> leaves = new List<DateTime>();
 		//public List<Kill> events;//doubled???
+
 	}
 
 	class Item
@@ -196,6 +329,9 @@ namespace DKPparser
 		public string itemName;
 		public string itemID;
 		public string icon;
+		public string itemCls;
+		public string itemSubCls;
+		public string color;
 		public string count;
 		public string player;
 		public string timeString;
