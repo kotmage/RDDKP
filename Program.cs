@@ -21,6 +21,7 @@ namespace DKPparser
 
 			foreach (XmlNode node in root.ChildNodes)
 			{
+				bool leave = false;
 				switch (node.Name)
 				{
 					#region key
@@ -94,7 +95,7 @@ namespace DKPparser
 						break;
 					#endregion
 
-					#region killstodo
+					#region kills
 					case "BossKills":
 						//project skrz celý seznam killů a zařadit je do event listu, který je zatím prázdný
 						foreach (XmlNode killsXml in node.ChildNodes)
@@ -147,7 +148,8 @@ namespace DKPparser
 									if (name == player.name)
 									{
 										//pokud sedí
-										player.joins.Add(Parsing.TimeToObj(oldVer, timeStr));
+										if (leave) player.leaves.Add(Parsing.TimeToObj(oldVer, timeStr));
+										else player.joins.Add(Parsing.TimeToObj(oldVer, timeStr));
 										break;
 									}
 								}
@@ -158,42 +160,8 @@ namespace DKPparser
 
 					#region leave
 					case "Leave":
-						/*
-						kod převzat z join
-						TODO:	vyřešit lepším zpusobem
-						*/
-						foreach (XmlNode joinXml in node.ChildNodes)
-						{
-							//projedeme parametry a zapísujme je do tempu
-							string name = null;
-							string timeStr = null;
-							foreach (XmlNode joinPar in joinXml)
-							{
-								if (joinPar.Name == "player")
-								{
-									name = joinPar.InnerText;
-								}
-								else if (joinPar.Name == "time")
-								{
-									timeStr = joinPar.InnerText;
-								}
-							}
-							// non-null check, možno odstranit, key bude vždy neco obsahovat
-							if (name != null && timeStr != null)
-							{
-								//najdeme k jmenu odpovídající záznam v players
-								foreach (Player player in raid.players)
-								{
-									if (name == player.name)
-									{
-										//pokud sedí
-										player.leaves.Add(Parsing.TimeToObj(oldVer, timeStr));
-										break;
-									}
-								}
-							}
-						}
-						break;
+						leave = true;
+						goto case "Join";
 					#endregion
 
 					#region loot
@@ -256,8 +224,6 @@ namespace DKPparser
 						}
 						break;
 					#endregion
-
-
 				}
 			}
 		}
@@ -360,3 +326,8 @@ namespace DKPparser
 	}
 
 }
+
+//Changelog:
+/*
+ * Version 0 most of existing functions works now
+ */
