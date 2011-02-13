@@ -1,0 +1,4 @@
+#ignore list pro RDDKP
+#binární adresáøe VS08
+bin/
+obj/

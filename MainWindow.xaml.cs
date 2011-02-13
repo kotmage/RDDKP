@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace RDDKP
 {
     /// <summary>
-    /// Interaction logic for Interface.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class Interface : UserControl
+    public partial class MainWindow : Window
     {
-        public Interface()
+        public MainWindow()
         {
             InitializeComponent();
         }

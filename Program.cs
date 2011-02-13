@@ -4,10 +4,10 @@ using System.Text;
 using System.Xml;
 using System.IO;
 
-namespace DKPparser
+namespace RDDKP
 {
 	class Program
-	{
+	{  
 		const string fileName = "RaidPrinter.lua";
 
 		static void Main(string[] args)
