@@ -39,6 +39,7 @@ namespace RDDKP
 					#region end
 					case "end":
 						raid.end = Parsing.TimeToObj(oldVer, node.InnerText);
+                        raid.CreateLenth();
 						break;
 					#endregion
 
@@ -62,7 +63,8 @@ namespace RDDKP
 						//project skrz celý seznam klíčů a zařadit je do players listu, který je zatím prázdný
 						foreach (XmlNode plrXml in node.ChildNodes)
 						{
-							Player plr = new Player();
+//TEMP: možna udělat víc objektově čistě, hlavne je to natvrdo
+							Player plr = new Player(raid);
 
 							foreach (XmlNode plrPar in plrXml.ChildNodes)
 							{
@@ -147,9 +149,8 @@ namespace RDDKP
 								{
 									if (name == player.name)
 									{
-										//pokud sedí
-										if (leave) player.leaves.Add(Parsing.TimeToObj(oldVer, timeStr));
-										else player.joins.Add(Parsing.TimeToObj(oldVer, timeStr));
+                                        if (leave) player.leaves.Add(Parsing.TimeToObj(oldVer, timeStr));
+                                        else player.joins.Add(Parsing.TimeToObj(oldVer, timeStr));
 										break;
 									}
 								}
@@ -226,6 +227,9 @@ namespace RDDKP
 					#endregion
 				}
 			}
+
+            foreach(Player plr in raid.players) plr.CopyToRelative(raid.start);
+
 		}
 	}
 
@@ -277,6 +281,7 @@ namespace RDDKP
 
 	class Player
 	{
+        private Raid defRaid;
 		public string name;
 		public string race;
 		public string guild;
@@ -284,11 +289,99 @@ namespace RDDKP
 		public string level;
 		public string timeString;
 		public DateTime time;
-		public List<DateTime> joins = new List<DateTime>();
-		public List<DateTime> leaves = new List<DateTime>();
-		//public List<Kill> events;//doubled???
+        //temps
+        public List<DateTime> joins = new List<DateTime>();
+        public List<DateTime> leaves = new List<DateTime>();
+        //finals, sorted
+        public List<TimePoint> points = new List<TimePoint>();
+        public List<TimeSpan> pointsRel = new List<TimeSpan>();
+        public List<TimeSpan> pointsNull = new List<TimeSpan>();
+        public List<bool> pointsJL = new List<bool>();
 
-	}
+		public List<Kill> events;//doubled??? -> yeah and linked!!!!
+
+        #region constructors
+        public Player()
+        {
+            this.defRaid = null;
+        }
+
+        public Player(Raid defRaid)
+        {
+            this.defRaid = defRaid;
+        }
+        #endregion
+
+        public void CheckEvents()
+        {
+            if (defRaid == null) return;
+            foreach (Kill kl in defRaid.kills)
+            {
+                //TODO: ST
+                //TimePoint => namespace?
+            }
+        }
+        
+        public void CopyToRelative(DateTime dt)
+        {
+            this.CreatePoints();
+            this.points.Sort();
+            this.CreateRelativePoints(dt);
+        }
+
+        private void CreatePoints()
+        {
+            //smazat staré pointy
+            this.points.Clear();
+            //joiny
+            if (this.joins.Count + this.leaves.Count == 0) return;
+            foreach (DateTime dt in this.joins)
+            {
+                this.points.Add(new TimePoint(dt, true));
+            }
+            //leavey
+            foreach (DateTime dt in this.leaves)
+            {
+                this.points.Add(new TimePoint(dt, false));
+            }
+        }
+
+        private void CreateRelativePoints(DateTime dt)
+        {
+            //smazat staré rel. pointy
+            pointsRel.Clear();
+            pointsNull.Clear();
+            pointsJL.Clear();
+            //spočítat 1. vztah
+            this.pointsRel.Add(this.points[0].dt - dt);
+            this.pointsNull.Add(this.points[0].dt - dt);
+            this.pointsJL.Add(this.points[0].join);
+            //spočítat vztahy
+            for (int i = 1; i < points.Count; i++)
+            {
+                this.pointsRel.Add(this.points[i].dt - this.points[i - 1].dt);
+                this.pointsNull.Add(this.points[i].dt - dt);
+                this.pointsJL.Add(this.points[i].join);
+            }
+        }
+
+        public struct TimePoint : IComparable<TimePoint>
+        {
+            public DateTime dt;
+            public bool join;
+            public TimePoint(DateTime dt, bool join)
+            {
+                this.dt=dt;
+                this.join = join;
+            }
+
+            public int CompareTo(TimePoint atp)
+            {
+                return DateTime.Compare(this.dt, atp.dt);
+            }
+        }
+    
+    }
 
 	class Item
 	{
@@ -323,6 +416,12 @@ namespace RDDKP
 		public DateTime key;
 		public DateTime start;
 		public DateTime end;
+        public TimeSpan length;
+
+        public void CreateLenth()
+        {
+            this.length = end - start;
+        }
 	}
 
 }
@@ -331,3 +430,10 @@ namespace RDDKP
 /*
  * Version 0 most of existing functions works now
  */
+
+//TODO:
+/*
+ * Timepointy dát ven, celý system víc zobjekotvat.
+ * Zbavit se lokálních stínu jako jako jsou v players a vše udělat jako return metod s jedním centrálním data skladem, pro snadnou updatabilitu.
+
+*/
