@@ -39,7 +39,6 @@ namespace RDDKP
                #region end
                case "end":
                   raid.end = Parsing.TimeToObj(oldVer, node.InnerText);
-                  raid.CreateLenth();
                   break;
                #endregion
 
@@ -102,7 +101,7 @@ namespace RDDKP
                   //project skrz celý seznam killů a zařadit je do event listu, který je zatím prázdný
                   foreach (XmlNode killsXml in node.ChildNodes)
                   {
-                     Kill kill = new Kill();
+                     Kill kill = new Kill(raid);
 
                      foreach (XmlNode killXml in killsXml.ChildNodes)
                      {
@@ -169,7 +168,7 @@ namespace RDDKP
                case "Loot":
                   foreach (XmlNode lootXml in node.ChildNodes)
                   {
-                     Item loot = new Item();
+                     Item loot = new Item(raid);
 
                      foreach (XmlNode lootPar in lootXml)
                      {
@@ -295,11 +294,6 @@ namespace RDDKP
       public List<DateTime> leaves = new List<DateTime>();
 
       #region constructors
-      public Player()
-      {
-         this.defRaid = null;
-      }
-
       public Player(Raid defRaid)
       {
          this.defRaid = defRaid;
@@ -391,6 +385,7 @@ namespace RDDKP
 
    class Item
    {
+      private Raid defRaid;
       public string itemName;
       public string itemID;
       public string icon;
@@ -404,16 +399,28 @@ namespace RDDKP
       public string zone;
       public string boss;
       public string note;
+
+      public Item(Raid raid)
+      {
+         this.defRaid = raid;
+      }
    }
 
    class Kill
    {
+      private Raid defRaid;
       public string name;
       public DateTime time;
+
+      public Kill(Raid raid)
+      {
+         this.defRaid = raid;
+      }
    }
 
    class Raid
    {
+      private List<Raid> defRaidList;
       public List<Player> players = new List<Player>();
       public List<Item> items = new List<Item>();
       public List<Kill> kills = new List<Kill>();
@@ -422,11 +429,15 @@ namespace RDDKP
       public DateTime key;
       public DateTime start;
       public DateTime end;
-      public TimeSpan length;
 
-      public void CreateLenth()
+      public TimeSpan GetLengthTS()
       {
-         this.length = end - start;
+         return end - start;
+      }
+
+      public DateTime GetLengthTS()
+      {
+         return end.AddTicks(-start.Ticks);
       }
    }
 
@@ -460,4 +471,7 @@ namespace RDDKP
 
  * každý objekt musí mít povině defRaid (=> nelze mít nulový konstruktor)
  * =>(2) zavést error hlásky při null parametru na defRaid
+ * DONE
+
+ * 
 */
