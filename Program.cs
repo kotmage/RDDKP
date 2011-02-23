@@ -172,6 +172,7 @@ namespace RDDKP
 
                      foreach (XmlNode lootPar in lootXml)
                      {
+                        #region switch
                         switch (lootPar.Name)
                         {
                            case "ItemName":
@@ -203,7 +204,11 @@ namespace RDDKP
                               break;
 
                            case "Player":
-                              loot.player = lootPar.InnerText;
+                              loot.playerStr = lootPar.InnerText;
+                              break;
+
+                           case "Cost":
+                              loot.cost = Convert.ToInt32(lootPar.InnerText);
                               break;
 
                            case "Time":
@@ -215,20 +220,48 @@ namespace RDDKP
                               loot.zone = lootPar.InnerText;
                               break;
 
+                           case "Boss":
+                              loot.boss = lootPar.InnerText;
+                              break;
+
                            case "Note":
                               loot.note = lootPar.InnerText;
                               break;
                         }
+                        #endregion
                      }
+
+                     //string to object
+                     foreach (Player plr in raid.players)
+                     {
+                        if (plr.name == loot.playerStr) loot.player = plr;
+                     }
+
                      raid.items.Add(loot);
                   }
                   break;
                #endregion
             }
-         }
+         }         
 
          foreach (Player plr in raid.players) plr.GetPointsRelative(raid.start);
          foreach (Player plr in raid.players) plr.CheckEvents();
+
+         //foreach (Player plr in raid.players)
+         //{
+         //   Console.WriteLine(plr.name);
+         //   StringWriter sw = new StringWriter();
+         //   Kill.PrintKills(plr.CheckEvents(), ref sw);
+         //   sw.Flush();
+         //   Console.Write(sw.ToString());
+         //   sw.Dispose();
+         //}
+
+         //foreach (Kill kl in raid.kills)
+         //{
+         //   Console.WriteLine(kl.name);
+         //   foreach(Player plr in kl.GetAttendees()) Console.WriteLine(plr.name);
+         //}
 
       }
    }
@@ -246,6 +279,13 @@ namespace RDDKP
       /// <returns></returns>
       public static DateTime TimeToObj(bool old, string timeStr)
       {
+         if (!old)
+         {
+            DateTime dt = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            dt.AddSeconds(Convert.ToDouble(timeStr));
+            return dt;
+         }
+
          int[] dateArrStr = new int[3];
          int indexCh = 0;
          for (int i = 0; i < 3; i++)
@@ -276,7 +316,6 @@ namespace RDDKP
          return new DateTime(2000 + dateArrStr[2], dateArrStr[0], dateArrStr[1], timeArrStr[0], timeArrStr[1], timeArrStr[2]);
 
       }
-
    }
 
    class Player
@@ -309,7 +348,7 @@ namespace RDDKP
 
          foreach (Kill kl in defRaid.kills)
          {
-            for (int i = 0; i < pointsAbsolute.Count; i++)
+            for (int i = 0; i < pointsAbsolute.Count - 1; i++) //vzhledem ke stylu podmímky, se poslední čas netestuje, protože je uzavírací
             {
                if (kl.time >= pointsAbsolute[i].dt &&
                    kl.time <= pointsAbsolute[i + 1].dt &&
@@ -322,6 +361,22 @@ namespace RDDKP
          }
 
          return events;
+      }
+
+      public bool CheckEvent(Kill kl)
+      {
+         List<TimePoint> pointsAbsolute = GetPointsAbsolute();
+
+         for (int i = 0; i < pointsAbsolute.Count - 1; i++) //vzhledem ke stylu podmímky, se poslední čas netestuje, protože je uzavírací
+         {
+            if (kl.time >= pointsAbsolute[i].dt &&
+                kl.time <= pointsAbsolute[i + 1].dt &&
+                pointsAbsolute[i].join)
+            {
+               return true;
+            }
+         }
+         return false;
       }
 
       public List<TimePoint> GetPointsAbsolute()
@@ -379,7 +434,15 @@ namespace RDDKP
          return relativePoints;
       }
 
-
+      public List<Item> GetItems()
+      {
+         List<Item> items = new List<Item>();
+         foreach (Item item in defRaid.items)
+         {
+            if (item.player == this) items.Add(item);
+         }
+         return items;
+      }
 
    }
 
@@ -393,7 +456,9 @@ namespace RDDKP
       public string itemSubCls;
       public string color;
       public string count;
-      public string player;
+      public string playerStr;
+      public Player player;
+      public int cost;
       public string timeString;
       public DateTime time;
       public string zone;
@@ -416,6 +481,30 @@ namespace RDDKP
       {
          this.defRaid = raid;
       }
+
+      public static void PrintKills(List<Kill> kills, ref StringWriter sw/* * DOPLNIT: REF NA VÝSTUP; FORMAT ZPRACOVANI * */)
+      {
+         for (int i = 0; i < kills.Count; i++)
+         {
+            Kill kl = kills[i];
+            sw.WriteLine(/*i + 1 + "/" + kills.Count + " " + */kl.Print());
+         }
+      }
+
+      public string Print(/*, FORMAT ZPRACOVANI*/)
+      {
+         return time.ToShortDateString() + " " + time.ToShortTimeString() + " " + name;
+      }
+
+      public List<Player> GetAttendees()
+      {
+         List<Player> att = new List<Player>();
+         foreach (Player plr in defRaid.players)
+         {
+            if (plr.CheckEvent(this)) att.Add(plr);
+         }
+         return att;
+      }
    }
 
    class Raid
@@ -435,7 +524,7 @@ namespace RDDKP
          return end - start;
       }
 
-      public DateTime GetLengthTS()
+      public DateTime GetLengthDT()
       {
          return end.AddTicks(-start.Ticks);
       }
